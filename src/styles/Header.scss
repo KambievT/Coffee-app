@@ -1,0 +1,36 @@
+$main-color:#2F160D;
+.header{
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: space-between;
+    &__nav{
+      display: flex;
+      align-items: center;
+      a{
+        color: $main-color;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 500ms ease;
+        margin: 10px;
+        &:hover{
+          opacity: 0.6;
+        }
+      }
+    }
+    .header__menu{
+      display: none;
+    }
+    @media (max-width:500px) {
+      .header__menu{
+        display: block;
+      }
+      .header{
+        &__nav{
+          display: none;
+        }
+      }
+    }
+  }
+
+ 
