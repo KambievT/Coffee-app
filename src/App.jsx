@@ -67,19 +67,21 @@ export default function App() {
   
   const [loading,setLoading] = useState(true)
   
+  const getData = async () => {
+    try {
+    const response = await axios.get("https://674b65c171933a4e88553b38.mockapi.io/products/products")
+    setProducts(response.data)
+    setLoading(false)
+    }
+    catch {
+      console.error('Ошибка',error)
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    setTimeout(() => {
-      axios.get('https://674b65c171933a4e88553b38.mockapi.io/products/products')
-      .then((response)=>{
-        setProducts(response.data)
-        setLoading(false)
-      }).catch((error)=>{
-        console.error('Ошибка',error)
-        setLoading(false)
-      })
-    }, 2000);
-  }, []) // Получение товара
+    getData();
+  }, []) 
 
   return (
     <>
